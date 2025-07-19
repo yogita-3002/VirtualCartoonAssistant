@@ -1,0 +1,282 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #d1f3ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Doraemon container */
+.doraemon {
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: left 0.1s ease;
+  cursor: pointer;
+  z-index: 10;
+}
+
+/* Head */
+.head {
+  width: 220px;
+  height: 220px;
+  background-color: #2196f3;
+  border-radius: 50%;
+  position: relative;
+  margin: 0 auto;
+}
+
+/* Eyes */
+.eye {
+  width: 50px;
+  height: 50px;
+  background: white;
+  border-radius: 50%;
+  position: absolute;
+  overflow: hidden;
+}
+
+.left-eye {
+  left: 55px;
+  top: 50px;
+}
+
+.right-eye {
+  right: 55px;
+  top: 50px;
+}
+
+/* Pupil */
+.pupil {
+  width: 20px;
+  height: 20px;
+  background: black;
+  border-radius: 50%;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  transition: top 0.1s, left 0.1s;
+}
+
+/* Eyelid (for blinking) */
+.eyelid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #2196f3;
+  border-radius: 50%;
+  animation: blink 4s infinite;
+  transform-origin: top;
+}
+
+@keyframes blink {
+  0%, 90%, 100% {
+    transform: scaleY(0);
+  }
+  92%, 96% {
+    transform: scaleY(1);
+  }
+}
+
+/* Nose */
+.nose {
+  width: 20px;
+  height: 20px;
+  background: red;
+  border-radius: 50%;
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Mouth */
+.mouth {
+  width: 100px;
+  height: 50px;
+  border-bottom: 4px solid black;
+  border-radius: 0 0 50px 50px;
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Whiskers */
+.whiskers {
+  position: absolute;
+  top: 100px;
+}
+
+.whiskers.left {
+  left: -20px;
+}
+
+.whiskers.right {
+  right: -20px;
+}
+
+.whiskers span {
+  display: block;
+  width: 60px;
+  height: 2px;
+  background: black;
+  margin: 5px 0;
+}
+
+/* Body */
+.body {
+  width: 180px;
+  height: 200px;
+  background: #2196f3;
+  border-radius: 100px / 80px;
+  position: relative;
+  margin: 0 auto;
+  top: -10px;
+}
+
+/* Belly */
+.belly {
+  width: 100px;
+  height: 100px;
+  background: white;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  bottom: 30px;
+  transform: translateX(-50%);
+}
+
+/* Bell */
+.bell {
+  width: 25px;
+  height: 25px;
+  background: yellow;
+  border: 2px solid black;
+  border-radius: 50%;
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Arms */
+.arm {
+  width: 40px;
+  height: 80px;
+  background: #2196f3;
+  position: absolute;
+  top: 40px;
+  border-radius: 30px;
+}
+
+.left-arm {
+  left: -40px;
+  transform: rotate(30deg);
+}
+
+.right-arm {
+  right: -40px;
+  transform: rotate(-30deg);
+}
+
+/* Legs */
+.leg {
+  width: 60px;
+  height: 40px;
+  background: #2196f3;
+  border-radius: 20px;
+  position: absolute;
+  bottom: -15px;
+}
+
+.left-leg {
+  left: 10px;
+}
+
+.right-leg {
+  right: 10px;
+}
+/* Wink animation */
+@keyframes wink {
+  0%, 100% {
+    transform: scaleY(0);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+
+/* Style specifically for wink */
+.right-eye .eyelid.wink {
+  animation: wink 0.5s ease-in-out;
+}
+.wink {
+  transform: scaleY(1);
+  background-color: #2196f3; /* same as head */
+  animation: none !important; /* stop blinking */
+}
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-30px);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+  70% {
+    transform: translateY(-15px);
+  }
+}
+
+.doraemon.bounce {
+  animation: bounce 0.6s ease;
+}
+#start-voice {
+  margin-top: 10px;
+  padding: 6px 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+/* Doraemon's mouth style */
+.mouth {
+  width: 70px; /* Increased width for a smile */
+  height: 30px; /* Slightly shorter for curved smile effect */
+  background: red;
+  border-radius: 0 0 60px 60px; /* Smoother, wider curve for smile */
+  position: absolute;
+  bottom: 30px; /* Moved mouth higher up */
+  left: 50%;
+  transform: translateX(-50%);
+  transition: transform 0.1s ease-in-out;
+}
+
+/* Talking animation */
+.mouth.talking {
+  animation: mouthMove 0.3s infinite alternate;
+}
+
+@keyframes mouthMove {
+  0% {
+    transform: translateX(-50%) scaleY(1);
+  }
+  100% {
+    transform: translateX(-50%) scaleY(1.4);
+  }
+}
+
+
+
+
+
+
